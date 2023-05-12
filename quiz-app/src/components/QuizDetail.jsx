@@ -1,14 +1,42 @@
+import { MDBContainer, } from 'mdb-react-ui-kit';
 import React from 'react';
-
+import logo from '../game.svg'
+import ListGroup from './ListGroup'
 
 const QuizDetail = ({onStart}) => {
     
   return (
-    <div>
-      <h2>Quiz Detail</h2>
-      <p>This is a multiple-choice quiz. You have 1 minute to complete the quiz.</p>
-      <button onClick={()=>onStart()}>Start Quiz</button>
+    <MDBContainer fluid className='d-flex flex-column align-items-center justify-content-center'>
+      <aside class="responsive-banner first">
+  <div class="container-envelope">
+    <svg class="cirle-a" height="160" width="160">
+      <circle cx="80" cy="80" r="80"/>
+    </svg>
+     <svg class="cirle-b" height="60" width="60">
+      <circle cx="30" cy="30" r="30"/>
+    </svg>
+    <svg class="cirle-c" height="600" width="600">
+      <circle cx="300" cy="300" r="300"/>
+    </svg>
+   <svg class="cirle-d" height="60" width="60">
+      <circle cx="30" cy="30" r="30"/>
+    </svg>
+    <img src={logo} alt='logo' />
+    <div class="col-xs-12" style={{marginTop:500}}>
+      <p>Welcome to merchify Quiz</p>
+      <a target="_blank"  class="more-link"> <ListGroup onStart={onStart}/></a>
+      <p style={{marginTop:20}}>take this quiz to challenge yourself</p>
+      <p style={{marginTop:20}}>take this quiz to challenge yourself</p>
     </div>
+   
+  </div>
+</aside>
+      
+      
+     
+
+      
+    </MDBContainer>
   );
 };
 
