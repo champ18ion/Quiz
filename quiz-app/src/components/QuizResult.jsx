@@ -1,45 +1,61 @@
 import { MDBBtn, MDBContainer } from "mdb-react-ui-kit";
-import React from "react";
+import React, { useState } from "react";
 import Confetti from "react-confetti";
 import trophy from "../trophy.svg";
 
 function QuizResult({ questions, answers, score, timeTaken, onStart }) {
+  const [showanswer, setShowAnswer] = useState(false);
   return (
     <>
       {score >= 7 && <Confetti />}
       <MDBContainer fluid className="result">
         <div className="result">
-          <h2 className="text-center text-success ">Quiz Result</h2>
-          <div className="d-flex flex-column text-center">
-            <img
-              src={trophy}
-              alt=""
-              srcset=""
-              className="img-fluid"
-              width={30}
-            />
-            Your Score:
-            <big
-              className={
-                score >= 7 ? "text-success display-2" : "text-danger display-2"
-              }
-            >
-              {score} / {questions.length}
-            </big>
-            <br />
-            <span className="text-info ">
-              Time Taken: <big>{timeTaken}</big> seconds
-            </span>
+        <aside class="responsive-banner first">
+        <div class="container-envelope">
+          {/* Circles for design */}
+          <svg class="cirle-a" height="160" width="160">
+            <circle cx="80" cy="80" r="80" />
+          </svg>
+          <svg class="cirle-b" height="60" width="60">
+            <circle cx="30" cy="30" r="30" />
+          </svg>
+          <svg class="cirle-c" height="600" width="600">
+            <circle cx="300" cy="300" r="300" />
+          </svg>
+          <svg class="cirle-d" height="60" width="60">
+            <circle cx="30" cy="30" r="30" />
+          </svg>
+          {/* Logo */}
+          <img src={trophy} alt="logo" />
+          {/* Quiz description */}
+          <big className="text-info ">You Scored</big>
+          <h1 className="display-1" style={{position:"absolute",fontWeight:900,left:10,top:50}}>{score*10}%</h1>
+          <div className="d-grid">
+            <h3 style={{position:"absolute",left:20,top:200}}>Your Score</h3>
+          <h1 className="text-info display-1" style={{position:"absolute",fontWeight:800,left:10,top:230}}>{score}/{questions.length}</h1>
+          <h3 style={{position:"absolute",left:20,top:370}}>Time Taken</h3>
+          <h1 className="text-success display-1" style={{position:"absolute",fontWeight:800,left:10,top:400}}>{timeTaken} <small>sec</small></h1>
+          
           </div>
+        </div>
+      </aside>
+      <MDBBtn 
+          style={{position:"absolute",left:200,top:600}}
+          rounded outline onClick={() => setShowAnswer(!showanswer)}>
+                  show Answer
+          </MDBBtn>
           <MDBBtn
-            onClick={onStart}
+           style={{position:"absolute",right:200,top:600}}
+           onClick={onStart}
             rounded
             color={score >= 7 ? "success" : "danger"}
           >
             {" "}
             take Quiz Again
           </MDBBtn>
-          <ol className="alternating-colors">
+         
+
+          {showanswer &&(<ol className="alternating-colors">
             {questions.map((q, index) => (
               <li className="li" key={index}>
                 <strong>{q.question}</strong> - Correct answer: {q.answer}
@@ -56,7 +72,9 @@ function QuizResult({ questions, answers, score, timeTaken, onStart }) {
                 )}
               </li>
             ))}
-          </ol>
+          </ol>)}
+          
+      
         </div>
       </MDBContainer>
     </>
