@@ -42,9 +42,6 @@ This is a simple quiz application built with React.
 
 3. Click on the "Start Quiz" button to begin.
 
-## Credits
-
-This project was built by [Your Name] as part of [Course/Program Name] on [Platform/Institution]. The quiz questions were sourced from various online resources, including [Source 1] and [Source 2].
 
 ## Contributing
 
