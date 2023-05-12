@@ -10,31 +10,31 @@ const QuizDetail = ({ onStart }) => {
       className="d-flex flex-column align-items-center justify-content-center"
     >
       {/* Responsive banner */}
-      <aside class="responsive-banner first">
-        <div class="container-envelope">
+      <aside className="responsive-banner first">
+        <div className="container-envelope">
           {/* Circles for design */}
-          <svg class="cirle-a" height="160" width="160">
+          <svg className="cirle-a" height="160" width="160">
             <circle cx="80" cy="80" r="80" />
           </svg>
-          <svg class="cirle-b" height="60" width="60">
+          <svg className="cirle-b" height="60" width="60">
             <circle cx="30" cy="30" r="30" />
           </svg>
-          <svg class="cirle-c" height="600" width="600">
+          <svg className="cirle-c" height="600" width="600">
             <circle cx="300" cy="300" r="300" />
           </svg>
-          <svg class="cirle-d" height="60" width="60">
+          <svg className="cirle-d" height="60" width="60">
             <circle cx="30" cy="30" r="30" />
           </svg>
           {/* Logo */}
           <img src={logo} alt="logo" />
           {/* Quiz description */}
-          <div class="col-xs-12" style={{ marginTop: 500 }}>
+          <div className="col-xs-12" style={{ marginTop: 500 }}>
             <p>Welcome to merchify Quiz</p>
             {/* Start button */}
-            <a target="_blank" class="more-link">
+            <a target="_blank" className="more-link">
               <ListGroup onStart={onStart} />
             </a>
-            <p style={{ marginTop: 20, fontFamily: "monospace" }}>
+            <p style={{ marginTop: 30, fontFamily: "monospace" }}>
               take this quiz to challenge yourself
             </p>
           </div>

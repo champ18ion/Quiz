@@ -4,8 +4,6 @@ import {
   MDBBtn,
   MDBCard,
   MDBCardHeader,
-  MDBListGroup,
-  MDBListGroupItem,
 } from "mdb-react-ui-kit";
 
 const QuizAttempt = ({ questions, onStart, duration }) => {
@@ -14,9 +12,8 @@ const QuizAttempt = ({ questions, onStart, duration }) => {
   const [answers, setAnswers] = useState(new Array(questions.length).fill(""));
   const [showScore, setShowScore] = useState(false);
   const [timeLeft, setTimeLeft] = useState(duration);
-  const [selected, setSelected] = useState(false);
-  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
 
+// setting timer for quiz
   useEffect(() => {
     const timer = setTimeout(() => {
       if (timeLeft > 0 && !showScore) {
@@ -28,26 +25,33 @@ const QuizAttempt = ({ questions, onStart, duration }) => {
 
     return () => clearTimeout(timer);
   }, [timeLeft, showScore]);
-
+   
+  // setting answers in answer array
+  const handleAnswer = (questionIndex, selectedAnswer) => {
+    const newAnswers = [...answers];
+    newAnswers[questionIndex] = selectedAnswer;
+    setAnswers(newAnswers);
+  
+    const isAnswerCorrect = selectedAnswer === questions[questionIndex].answer;
+    if (isAnswerCorrect) {
+      setScore(score + 1);
+    }
+  }
+  
   const handleNextClick = () => {
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
-      setSelected(false);
-      setIsAnswerCorrect(false);
     } else {
       setShowScore(true);
     }
-    if (isAnswerCorrect) {
-      setScore(score + 1);
-    }
   };
+  
 
   const handlePrevClick = () => {
     const prevQuestion = currentQuestion - 1;
     if (prevQuestion >= 0) {
       setCurrentQuestion(prevQuestion);
-      setSelected(false);
     }
   };
   const timeTaken = duration - timeLeft;
@@ -87,16 +91,7 @@ const QuizAttempt = ({ questions, onStart, duration }) => {
                   value={option}
                   id={option}
                   checked={answers[currentQuestion] === option}
-                  onChange={() => {
-                    setAnswers([
-                      ...answers.slice(0, currentQuestion),
-                      option,
-                      ...answers.slice(currentQuestion + 1),
-                    ]);
-                    setSelected(true);
-                    setIsAnswerCorrect(
-                      option === questions[currentQuestion].answer
-                    );
+                  onChange={() => {handleAnswer(currentQuestion, option);
                   }}
                   className="radio"
                   disabled={false}
