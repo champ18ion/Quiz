@@ -31,12 +31,23 @@ const QuizAttempt = ({ questions, onStart, duration }) => {
     const newAnswers = [...answers];
     newAnswers[questionIndex] = selectedAnswer;
     setAnswers(newAnswers);
+  };
   
-    const isAnswerCorrect = selectedAnswer === questions[questionIndex].answer;
-    if (isAnswerCorrect) {
-      setScore(score + 1);
+  const handleSubmit = () => {
+    let newScore = 0;
+    for (let i = 0; i < questions.length; i++) {
+      const selectedAnswer = answers[i];
+      const correctAnswer = questions[i].answer;
+      if (selectedAnswer === correctAnswer) {
+        newScore++;
+      }
     }
-  }
+    setScore(newScore);
+    setShowScore(true);
+  };
+  
+  
+  
   
   const handleNextClick = () => {
     const nextQuestion = currentQuestion + 1;
@@ -103,7 +114,7 @@ const QuizAttempt = ({ questions, onStart, duration }) => {
               className="m-4"
               color="success"
               rounded
-              onClick={handleNextClick}
+              onClick={currentQuestion === questions.length - 1 ? handleSubmit : handleNextClick}
             >
               {currentQuestion === questions.length - 1 ? "Finish" : "Next"}
             </MDBBtn>
