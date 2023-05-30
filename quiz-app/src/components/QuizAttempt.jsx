@@ -19,6 +19,7 @@ const QuizAttempt = ({ questions, onStart, duration }) => {
       if (timeLeft > 0 && !showScore) {
         setTimeLeft(timeLeft - 1);
       } else {
+        handleSubmit();
         setShowScore(true);
       }
     }, 1000);
