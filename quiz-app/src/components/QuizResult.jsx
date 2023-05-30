@@ -11,43 +11,30 @@ function QuizResult({ questions, answers, score, timeTaken, onStart }) {
     <>
     {/* renders confetti only if user passes test */}
       {score >= 7 && <Confetti />}
-      <MDBContainer fluid className="result">
-        <div className="result">
-          <aside class="responsive-banner first">
-            <div class="container-envelope">
-              {/* Circles for design */}
-              <svg class="cirle-a" height="160" width="160">
-                <circle cx="80" cy="80" r="80" />
-              </svg>
-              <svg class="cirle-b" height="60" width="60">
-                <circle cx="30" cy="30" r="30" />
-              </svg>
-              <svg class="cirle-c" height="600" width="600">
-                <circle cx="300" cy="300" r="300" />
-              </svg>
-              <svg class="cirle-d" height="60" width="60">
-                <circle cx="30" cy="30" r="30" />
-              </svg>
-              <img src={trophy} alt="logo" />
+      <MDBContainer fluid className="d-flex flex-column justify-content-center align-items-center">
+        <div>
+              <img src={trophy} alt="logo" className="bg-image img-fluid" style={{height:'100vh', opacity:'0.5'}} />
               {/* Result description */}
-              <big className="text-info ">You Scored</big>
+              <h3 style={{ position: "absolute", right: 20, top: 200 }}>
+                  Time Taken
+                </h3>
               <h1
                 className="display-1"
                 style={{
                   position: "absolute",
                   fontWeight: 900,
-                  left: 10,
-                  top: 50,
+                  right: 10,
+                  top: 230,
                 }}
               >
-                {score * 10}%
+                {timeTaken} sec
               </h1>
-              <div className="d-grid">
+              <div>
                 <h3 style={{ position: "absolute", left: 20, top: 200 }}>
                   Your Score
                 </h3>
                 <h1
-                  className="text-info display-1"
+                  className={`display-1 ${score >= 7 ? "text-info" : "text-danger"}`}
                   style={{
                     position: "absolute",
                     fontWeight: 800,
@@ -57,26 +44,11 @@ function QuizResult({ questions, answers, score, timeTaken, onStart }) {
                 >
                   {score}/{questions.length}
                 </h1>
-                <h3 style={{ position: "absolute", left: 20, top: 370 }}>
-                  Time Taken
-                </h3>
-                <h1
-                  className="text-success display-1"
-                  style={{
-                    position: "absolute",
-                    fontWeight: 800,
-                    left: 10,
-                    top: 400,
-                  }}
-                >
-                  {timeTaken} <small>sec</small>
-                </h1>
+                
               </div>
-            </div>
-          </aside>
 
           <MDBBtn
-            style={{ position: "absolute", left: 200, top: 600 }}
+            style={{ position: "absolute", left: 200, top: 550 }}
             rounded
             outline
             onClick={() => setShowAnswer(!showanswer)}
@@ -84,7 +56,7 @@ function QuizResult({ questions, answers, score, timeTaken, onStart }) {
             show Answer
           </MDBBtn>
           <MDBBtn
-            style={{ position: "absolute", right: 200, top: 600 }}
+            style={{ position: "absolute", right: 200, top: 550 }}
             onClick={onStart}
             rounded
             color={score >= 7 ? "success" : "danger"}
