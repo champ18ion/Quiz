@@ -61,7 +61,7 @@ export const questions = [  {    id: 1,    category: "math",    question: "What 
     id: 10,
     category: "logical",
     question: "What word starts with 'e', ends with 'e', but only contains one letter?",
-    options: ["Eye", "Eve", "Ere", "Ese"],
+    options: ["Eye", "envelope", "Ere", "Ese"],
     answer: "Eve"
   }
 ];

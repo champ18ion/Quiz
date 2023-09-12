@@ -19,7 +19,7 @@ const App = () => {
   return (
     <MDBContainer fluid>
       <Header/>
-      {attempt ? <QuizAttempt questions={questions} onStart={hideQuiz} duration={60}/> : <QuizDetail onStart={showQuiz} />}
+      {attempt ? <QuizAttempt questions={questions} onStart={hideQuiz} duration={90}/> : <QuizDetail onStart={showQuiz} />}
     </MDBContainer>
     
    

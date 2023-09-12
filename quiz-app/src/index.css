@@ -280,3 +280,48 @@ h1 {
   font-weight: 400;
   letter-spacing: 1px;
 }
+.que-box{
+  max-height: 75px;
+  min-height: 75px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 2px;
+  font-size:120%;
+}
+.time-left{
+  align-self: flex-end;
+  display: flex;
+  gap: 2px;
+  background-color: #74DAC4;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 12px;
+}
+.time-left h4{
+ margin-top: 4px;
+ padding: 4px;
+}
+.time-left span{
+  padding:4px;
+  margin-top: 3px;
+  margin-right: 4px;
+  font-size: large;
+  font-weight: medium;
+  color: #474949;
+}
+.res-grid{
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 10px;
+}
+.res-card{
+  background-color: #0BAD02;
+  height: 200px;
+  border-radius: 10px;
+}
+#answers{
+  grid-column: span 2;
+  height: auto;
+  background-color: #D1D7DC;
+  padding: 18px;
+  padding-left: 25px;
+}

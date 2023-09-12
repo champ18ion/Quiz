@@ -79,20 +79,17 @@ const QuizAttempt = ({ questions, onStart, duration }) => {
           onStart={onStart}
         />
       ) : (
-        <div className="mt-2">
+        <div className="mt-4">
           <MDBCard alignment="center">
+          <div className="time-left">
+                <h4>⌚</h4>
+                <span>{`${timeLeft} sec`}</span>
+              </div>
             <MDBCardHeader className="">
               {" "}
               <h2>Question {currentQuestion + 1}</h2>
-              <MDBBtn color="dark" rippleColor="light">
-                Time left:{" "}
-                <span className="bg-light text-info fs-6 p-1 mx-2 rounded">
-                  {timeLeft}
-                </span>
-                sec
-              </MDBBtn>
             </MDBCardHeader>
-            <div className="display-6 text-success">
+            <div className="text-primary que-box">
               {questions[currentQuestion].question}
             </div>
 
@@ -112,7 +109,7 @@ const QuizAttempt = ({ questions, onStart, duration }) => {
               </div>
             ))}
             <MDBBtn
-              className="m-4"
+              className="m-2"
               color="success"
               rounded
               onClick={currentQuestion === questions.length - 1 ? handleSubmit : handleNextClick}
@@ -120,7 +117,7 @@ const QuizAttempt = ({ questions, onStart, duration }) => {
               {currentQuestion === questions.length - 1 ? "Finish" : "Next"}
             </MDBBtn>
             <MDBBtn
-              className="m-4"
+              className="m-2"
               rounded
               color="info"
               onClick={handlePrevClick}

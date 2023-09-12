@@ -44,7 +44,7 @@ export default function App({ onStart }) {
             {/* modal body */}
             <MDBModalBody>
               {/* list group to show the rules */}
-              <MDBListGroup style={{ minWidth: "22rem" }} light>
+              <MDBListGroup style={{ minWidth: "22rem",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center" }} light>
                 <MDBListGroupItem
                   noBorders
                   color="info"
@@ -70,7 +70,7 @@ export default function App({ onStart }) {
             </MDBModalBody>
 
             {/* modal footer */}
-            <MDBModalFooter>
+            <MDBModalFooter style={{display:"flex", justifyContent:"center"}}>
               {/* button to start the quiz */}
               <MDBBtn rounded onClick={onStart}>
                 Start quiz
