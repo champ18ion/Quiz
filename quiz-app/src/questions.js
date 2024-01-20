@@ -1,4 +1,8 @@
-export const questions = [  {    id: 1,    category: "math",    question: "What is the square root of 144?",    options: ["12", "14", "16", "18"],
+export const questions = [ 
+    {id: 1,
+    category: "math",
+    question: "What is the square root of 144?",
+    options: ["12", "14", "16", "18"],
     answer: "12"
   },
   {
