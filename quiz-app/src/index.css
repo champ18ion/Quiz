@@ -26,6 +26,7 @@ code {
   transition: color 200ms ease-in;
   overflow: hidden;
 }
+
 .inputGroup label:before {
   width: 20px;
   height: 10px;
